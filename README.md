@@ -60,8 +60,8 @@ Things you may want to cover:
 
 | Column  | Type       | Options                        | 
 | ------- | ---------- | ------------------------------ | 
-| user_id | references | null: false, foreign_key: true | 
-| item_id | references | null: false, foreign_key: true | 
+| user    | references | null: false, foreign_key: true | 
+| item    | references | null: false, foreign_key: true | 
 
 ### Association
 
@@ -75,16 +75,6 @@ Things you may want to cover:
 | house_number   | integer    | null: false                    | 
 | building_name  | string     |                                | 
 | phone_number   | integer    | null: false                    | 
-| buy_id         | references | null: false, foreign_key: true | 
-
-### Association
-
-## commentsテーブル
-
-| Column   | Type       | Options                        | 
-| -------- | ---------- | ------------------------------ | 
-| contents | text       | null: false                    | 
-| user_id  | references | null: false, foreign_key: true | 
-| item_id  | references | null: false, foreign_key: true | 
+| order          | references | null: false, foreign_key: true | 
 
 ### Association
