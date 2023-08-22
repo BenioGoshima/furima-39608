@@ -40,6 +40,10 @@ Things you may want to cover:
 
 ### Association
 
+- has_many :items
+- has_many :orders
+
+
 ## itemsテーブル
 
 | Column        | Type       | Options                        | 
@@ -56,12 +60,21 @@ Things you may want to cover:
 
 ### Association
 
+- belongs_to :users
+- has_one :orders
+
+
 ## ordersテーブル
 
 | Column  | Type       | Options                        | 
 | ------- | ---------- | ------------------------------ | 
 | user    | references | null: false, foreign_key: true | 
 | item    | references | null: false, foreign_key: true | 
+
+- belongs_to :users
+- belongs_to :items
+- has_many :addresses
+
 
 ### Association
 
@@ -78,3 +91,5 @@ Things you may want to cover:
 | order          | references | null: false, foreign_key: true | 
 
 ### Association
+
+- belongs_to :orders
