@@ -60,8 +60,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :users
-- has_one :orders
+- belongs_to :user
+- has_one :order
 
 
 ## ordersテーブル
@@ -71,18 +71,18 @@ Things you may want to cover:
 | user    | references | null: false, foreign_key: true | 
 | item    | references | null: false, foreign_key: true | 
 
-- belongs_to :users
-- belongs_to :items
-- has_many :addresses
-
-
 ### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one :address
+
 
 ## addressesテーブル
 
 | Column         | Type       | Options                        | 
 | -------------- | ---------- | ------------------------------ | 
-| postal_code    | integer    | null: false                    | 
+| postal_code    | string     | null: false                    | 
 | prefecture_id  | integer    | null: false                    | 
 | municipalities | string     | null: false                    | 
 | house_number   | integer    | null: false                    | 
@@ -92,4 +92,4 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :orders
+- belongs_to :order
