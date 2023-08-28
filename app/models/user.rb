@@ -12,7 +12,6 @@ class User < ApplicationRecord
          KANA_REGEX = /\A[ァ-ヶ一]+\z/.freeze
 
          validates :nickname, presence: true
-         validates :email, presence: true
          validates :password, presence: true, format: { with: PASSWORD_REGEX }
          validates :encrypted_password, presence: true
 
