@@ -8,8 +8,8 @@ class User < ApplicationRecord
          #has_many :orders
 
          PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-         NAME_REGEX = /\A[ぁ-んァ-ヶ一-龥々ー]+\z/.freeze
-         KANA_REGEX = /\A[ァ-ヶ一]+\z/.freeze
+         NAME_REGEX = /\A[ぁ-んァ-ヶー-龥々ー]+\z/.freeze
+         KANA_REGEX = /\A[ァ-ヶー]+\z/.freeze
 
          validates :nickname, presence: true
          validates :password, presence: true, format: { with: PASSWORD_REGEX }
