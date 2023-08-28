@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
          validates :nickname, presence: true
          validates :password, format: { with: PASSWORD_REGEX }
-         validates :encrypted_password
+         
 
       with_options presence: true, format: { with: NAME_REGEX } do
          validates :first_name#, format: { with: NAME_REGEX }
