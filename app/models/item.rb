@@ -16,5 +16,5 @@ class Item < ApplicationRecord
     belongs_to :condition
     belongs_to :postage
     belongs_to :prefecture
-    belongs_to :date
+    belongs_to :delivery_time
 end
