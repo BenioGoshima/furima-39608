@@ -6,7 +6,10 @@ class Item < ApplicationRecord
   validates :postage_id,    numericality: { other_than: 1 }
   validates :prefecture_id, numericality: { other_than: 1 }
   validates :date_id,       numericality: { other_than: 1 }
-  validates :price,         presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+
+  PRICE_REGEX = /\A[0-9]+\z/.freeze
+
+  validates :price,         presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }, format: { with:PRICE_REGEX }
   validates :image,         presence: true
 
   belongs_to :user
