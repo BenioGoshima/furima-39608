@@ -6,10 +6,9 @@ class Item < ApplicationRecord
   validates :postage_id,    numericality: { other_than: 1 }
   validates :prefecture_id, numericality: { other_than: 1 }
   validates :date_id,       numericality: { other_than: 1 }
+  validates :price,         presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+  validate  :price_must_be_integer
 
-  PRICE_REGEX = /\A[0-9]+\z/.freeze
-
-  validates :price,         presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }, format: { with:PRICE_REGEX }
   validates :image,         presence: true
 
   belongs_to :user
@@ -25,4 +24,10 @@ class Item < ApplicationRecord
     belongs_to :postage
     belongs_to :prefecture
     belongs_to :delivery_time
+
+  private
+
+  def price_must_be_integer
+    price.present? && !price.is_a?(Integer)
+  end
 end
