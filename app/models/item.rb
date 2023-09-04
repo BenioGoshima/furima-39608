@@ -19,7 +19,7 @@ class Item < ApplicationRecord
     belongs_to :condition
     belongs_to :postage
     belongs_to :prefecture
-    belongs_to :delivery_time
+    belongs_to :delivery_time, class_name: 'DeliveryTime', foreign_key: 'date_id'
 
   private
 
