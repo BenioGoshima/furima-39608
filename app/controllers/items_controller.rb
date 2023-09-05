@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update]
   before_action :set_item, only: [:edit, :update, :destroy]
   before_action :check_owner, only: [:edit, :update, :destroy]
+  before_action :find_item, only: [:show, :edit, :update]
+
   def index
     @items = Item.order(created_at: :desc)
   end
@@ -20,14 +22,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    
   end
 
   def edit
-    @item = Item.find(params[:id])
+    
   end
 
   def update
+    
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
@@ -41,6 +44,10 @@ class ItemsController < ApplicationController
   end
 
   def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def find_item
     @item = Item.find(params[:id])
   end
 
