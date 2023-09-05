@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :check_owner, only: [:edit, :update, :destroy]
 
@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
   end
 
   def check_owner
-    unless user_signed_in? && @item.user == current_user
+    unless @item.user == current_user
       redirect_to root_path
     end
   end
